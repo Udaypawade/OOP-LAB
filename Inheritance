@@ -1,0 +1,132 @@
+// Develop a program to create a database of an Educational Institution System
+
+#include <iostream>
+using namespace std;
+
+// Base Class
+class staff {
+protected:
+    string name, dept;
+    int id;
+public:
+    void accept1();
+    void display1();
+};
+
+void staff::accept1() {
+    cout << "Enter your name : ";
+    cin >> name;
+    cout << "Enter your department : ";
+    cin >> dept;
+    cout << "Enter your ID : ";
+    cin >> id;
+}
+
+void staff::display1() {
+    cout << "The name is : \n" << name << endl;
+    cout << "The name of the department is :\n" << dept << endl;
+    cout << "Your ID is : " << id << endl;
+}
+
+// Derived Class
+class teacher : public staff {
+private:
+    int exp;
+    string sub;
+public:
+    void accept2();
+    void display2();
+};
+
+void teacher::accept2() {
+    accept1();
+    cout << "Enter the subject : ";
+    cin >> sub;
+    cout << "Enter the experience : ";
+    cin >> exp;
+}
+
+void teacher::display2() {
+    display1();
+    cout << "The subject is :\n" << sub << endl;
+    cout << "The experience is :\n" << exp << endl;
+}
+
+// Derived Class
+class supportstaff : public staff {
+private:
+    string areaofsupport;
+public:
+    void accept3();
+    void display3();
+};
+
+void supportstaff::accept3() {
+    accept1(); 
+    cout << "Enter the area of support : ";
+    cin >> areaofsupport;
+}
+
+void supportstaff::display3() {
+    display1(); // FIX: add base class output
+    cout << "The area of support : " << areaofsupport << endl;
+}
+
+int main() {
+    int choice;
+    do {
+        cout << "\n.......Staff Management Menu.......\n";
+        cout << "1. Enter Teacher Details\n";
+        cout << "2. Enter Supporting Staff Details\n";
+        cout << "3. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            int n;
+            cout << "Enter the number of Teachers: ";
+            cin >> n;
+            teacher t[n];
+            for (int i = 0; i < n; i++) {
+                cout << "\nEnter details for Teacher " << i + 1 << "\n";
+                t[i].accept2();
+            }
+            for (int i = 0; i < n; i++) {
+                cout << "\nDetails of Teacher " << i + 1 << "\n";
+                t[i].display2();
+            }
+            break; 
+        }
+        case 2: {
+            int n;
+            cout << "Enter the number of Supporting staff: ";
+            cin >> n;
+            supportstaff s[n];
+
+            for (int i = 0; i < n; i++) {
+                cout << "\nEnter details for Supporter " << i + 1 << "\n";
+                s[i].accept3();
+            }
+            for (int i = 0; i < n; i++) {
+                cout << "\nDetails of Supporter " << i + 1 << "\n";
+                s[i].display3();
+            }
+            break;         }
+        case 3:
+            cout << "Exiting program. Thank you!\n";
+            break;
+
+        default:
+            cout << "Invalid choice. Please enter 1, 2, or 3.\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
+
+
+
+
+
