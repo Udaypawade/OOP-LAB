@@ -1,0 +1,29 @@
+Enter the number of items you want to add in Inventory: 2
+
+Enter the details of 2 items:
+
+Item 1:
+Enter the name of item: Milk
+Enter the ID: 101
+Enter the quantity of item: 2
+Enter the price per item: 40
+
+Item 2:
+Enter the name of item: bread 
+Enter the ID: 102
+Enter the quantity of item: 2
+Enter the price per item: 50
+
+Displaying Inventory Information:
+
+Name: Milk
+ID of Item: 101
+Quantity: 2
+Price: 40
+Total Price: 80
+
+Name: bread
+ID of Item: 102
+Quantity: 2
+Price: 50
+Total Price: 100
